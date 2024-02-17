@@ -17,7 +17,7 @@ router = fastapi.APIRouter(prefix="/accounts", tags=["accounts"])
 
 @router.get(
     path="",
-    name="accountss:read-accounts",
+    name="accounts:read-accounts",
     response_model=list[AccountInResponse],
     status_code=fastapi.status.HTTP_200_OK,
 )
@@ -49,7 +49,7 @@ async def get_accounts(
 
 @router.get(
     path="/{id}",
-    name="accountss:read-account-by-id",
+    name="accounts:read-account-by-id",
     response_model=AccountInResponse,
     status_code=fastapi.status.HTTP_200_OK,
 )
@@ -81,7 +81,7 @@ async def get_account(
 
 @router.patch(
     path="/{id}",
-    name="accountss:update-account-by-id",
+    name="accounts:update-account-by-id",
     response_model=AccountInResponse,
     status_code=fastapi.status.HTTP_200_OK,
 )
@@ -116,7 +116,7 @@ async def update_account(
     )
 
 
-@router.delete(path="", name="accountss:delete-account-by-id", status_code=fastapi.status.HTTP_200_OK)
+@router.delete(path="", name="accounts:delete-account-by-id", status_code=fastapi.status.HTTP_200_OK)
 async def delete_account(
     id: int, account_repo: AccountCRUDRepository = fastapi.Depends(get_repository(repo_type=AccountCRUDRepository))
 ) -> dict[str, str]:
